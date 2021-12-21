@@ -23,7 +23,8 @@ int main()
 
     // point pointer variable to file
     image = fopen(file, "r");
-
+    // file location of result
+    result = fopen("C:\\Users\\admin\\OneDrive\\Desktop\\answer.xpm", "w");
     // change color function
     if (user == 1)
     {
@@ -43,53 +44,109 @@ int main()
         }
         // change color from user
         char c;
+        int round = 1;
         while ((c = fgetc(image)) != EOF)
         {
             if (c == '#')
             {
-                while (0)
+                while (1)
                 {
                     c = fgetc(image);
                     if (c == '\n')
                     {
-                        printf("Mimi");
-                        switch (color1)
+                        if (round == 1)
                         {
-                        case 1:
-                            // red
-                            printf("#FF0000");
-                            break;
-                        case 2:
-                            // yellow
-                            printf("#fff700");
-                            break;
-                        case 3:
-                            // blue
-                            printf("#003cff");
-                            break;
-                        case 4:
-                            // green
-                            printf("#1aff00");
-                            break;
-                        case 5:
-                            // black
-                            printf("#000000");
-                            break;
-                        case 6:
-                            // white
-                            printf("#ffffff");
-                            break;
-                        default:
-                            break;
+                            switch (color1)
+                            {
+                            case 1:
+                                // red
+                                fprintf(result, "#FF0000");
+                                printf("#FF0000");
+                                break;
+                            case 2:
+                                // yellow
+                                fprintf(result, "#fff700");
+                                printf("#fff700");
+                                break;
+                            case 3:
+                                // blue
+                                fprintf(result, "#003cff");
+                                printf("#003cff");
+                                break;
+                            case 4:
+                                // green
+                                fprintf(result, "#1aff00");
+                                printf("#1aff00");
+                                break;
+                            case 5:
+                                // black
+                                fprintf(result, "#000000");
+                                printf("#000000");
+                                break;
+                            case 6:
+                                // white
+                                fprintf(result, "#ffffff");
+                                printf("#ffffff");
+                                break;
+                            default:
+                                break;
+                            }
                         }
+                        else if (round == 2)
+                        {
+                            switch (color2)
+                            {
+                            case 1:
+                                // red
+                                fprintf(result, "#FF0000");
+                                printf("#FF0000");
+                                break;
+                            case 2:
+                                // yellow
+                                fprintf(result, "#fff700");
+                                printf("#fff700");
+                                break;
+                            case 3:
+                                // blue
+                                fprintf(result, "#003cff");
+                                printf("#003cff");
+                                break;
+                            case 4:
+                                // green
+                                fprintf(result, "#1aff00");
+                                printf("#1aff00");
+                                break;
+                            case 5:
+                                // black
+                                fprintf(result, "#000000");
+                                printf("#000000");
+                                break;
+                            case 6:
+                                // white
+                                fprintf(result, "#ffffff");
+                                printf("#ffffff");
+                                break;
+                            default:
+                                break;
+                            }
+                        }
+                        round += 1;
+                        break;
                     }
                 }
             }
+            fprintf(result, "%c", c);
             printf("%c", c);
         }
     }
+    // else if (user==2)
+    // {
+
+    // }
+
     // close file
     fclose(image);
+    fclose(result);
 
     return 0;
 }
